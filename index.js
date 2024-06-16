@@ -36,9 +36,10 @@ const questions = [
     message: 'Provide test instructions:',
 },
 {
-    type: 'input',
+    type: 'list',
     name: 'license',
-    message: 'What is the license for your project? Enter "None" if there is no license:',
+    message: 'Choose a license for your project. Valid responses: MIT, Apache, GPL, BSD, or None:',
+    choices: ['MIT', 'Apache', 'GPL', 'BSD', 'None'],
 },
 {
     type: 'input',

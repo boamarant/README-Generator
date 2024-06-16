@@ -1,20 +1,20 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {
-  if (!license || license === 'None') {
+function renderLicenseBadge(license) { 
+  if (!license || license === 'None') { //Does not render a badge if no license is selected
     return '';
   }
-  return `![License: ${license}](https://img.shields.io/badge/License-${encodeURIComponent(license)}-blue.svg)`;
+  return `![License: ${license}](https://img.shields.io/badge/License-${encodeURIComponent(license)}-blue.svg)`; //Renders license badge if there is a license
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  if (!license || license === 'None') {
+  if (!license || license === 'None') { //Does not render a link if no license is selected
     return '';
   }
-  // For simplicity, assuming license input matches known license URLs.
-  const licenseLinks = {
+  
+  const licenseLinks = { //Provides links for common licenses
     'MIT': 'https://opensource.org/licenses/MIT',
     'Apache': 'https://opensource.org/licenses/Apache-2.0',
     'GPL': 'https://www.gnu.org/licenses/gpl-3.0',
@@ -25,21 +25,20 @@ function renderLicenseLink(license) {
 
 
 // TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
 function renderLicenseSection(license) {
-  if (!license || license === 'None') {
+  if (!license || license === 'None') { //If there is no license, return a different string
     return `## License
     
     There is no license for this project.`;
   }
-  const licenseLink = renderLicenseLink(license);
+  const licenseLink = renderLicenseLink(license); //Accepts information about license and returns a fitting string
   return `## License
 
   This project is licensed under the ${licenseLink ? `[${license}](${licenseLink})` : license} license.`;
 }
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
+function generateMarkdown(data) { //Uses data from "answers" in the init function inside of index.js to create markdown text
   return `# ${data.title}
 
   ${renderLicenseBadge(data.license)}
